@@ -22,13 +22,18 @@ public class LinkedHashM implements Maps {
     private Set set = lmap.entrySet();
     private Iterator iterator = set.iterator();
     
+    public void agregarCarta(String linea){
+    String[] arr = linea.split("\\|");
+    lmap.put(arr[0], arr[1]);
+}
+    
     public void agregar(String nombre){
     String tipo = "";
     while((iterator.hasNext())&&(tipo.equals(""))){
         Map.Entry mentry = (Map.Entry)iterator.next();
-        if (mentry.getValue()==nombre){
-            tipo = ""+mentry.getKey();
-            lmap.put(tipo, nombre);
+        if (mentry.getKey()==nombre){
+            tipo = ""+mentry.getValue();
+            lmap.put(nombre, tipo);
         }
     }
     if (tipo.equals("")){
@@ -40,8 +45,8 @@ public String tipo(String nombre){
     String type = "";
     while((iterator.hasNext())&&(type.equals(""))){
         Map.Entry mentry = (Map.Entry)iterator.next();
-        if (mentry.getValue()==nombre)
-            type = "El tipo de la carta es: "+mentry.getKey();
+        if (mentry.getKey()==nombre)
+            type = "El tipo de la carta es: "+mentry.getValue();
     }
      if (type.equals(""))
         type = "No existe la carta";
@@ -54,7 +59,7 @@ public String getCartasTodas(){
     Iterator iterator2 = set2.iterator();
     while (iterator2.hasNext()){
         Map.Entry me2 = (Map.Entry)iterator2.next();
-        r = r + "Nombre: "+me2.getValue()+" Tipo: "+me2.getKey()+"\n";
+        r = r + "Tipo: "+me2.getValue()+" Nombre: "+me2.getKey()+"\n";
     }
     return r;
 }
@@ -66,7 +71,7 @@ public String getCartasOrdenadas(){
     Iterator iterator2 = set2.iterator();
     while (iterator2.hasNext()){
         Map.Entry me2 = (Map.Entry)iterator2.next();
-        r = r + "Nombre: "+me2.getValue()+" Tipo: "+me2.getKey()+"\n";
+        r = r + "Tipo: "+me2.getValue()+" Nombre: "+me2.getKey()+"\n";
     }
     return r;
 }
