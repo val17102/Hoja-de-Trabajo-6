@@ -19,13 +19,18 @@ public class HashM implements Maps {
     private HashMap<String, String> hmap = new HashMap<String, String>();
     private Set set = hmap.entrySet();
     private Iterator iterator = set.iterator();
+public void agregarCarta(String linea){
+    String[] arr = linea.split("\\|");
+    hmap.put(arr[0], arr[1]);
+}
+
 public void agregar(String nombre){
     String tipo = "";
     while((iterator.hasNext())&&(tipo.equals(""))){
         Map.Entry mentry = (Map.Entry)iterator.next();
-        if (mentry.getValue()==nombre){
-            tipo = ""+mentry.getKey();
-            hmap.put(tipo, nombre);
+        if (mentry.getKey()==nombre){
+            tipo = ""+mentry.getValue();
+            hmap.put(nombre, tipo);
         }
     }
     if (tipo.equals("")){
@@ -37,8 +42,8 @@ public String tipo(String nombre){
     String type = "";
     while((iterator.hasNext())&&(type.equals(""))){
         Map.Entry mentry = (Map.Entry)iterator.next();
-        if (mentry.getValue()==nombre)
-            type = "El tipo de la carta es: "+mentry.getKey();
+        if (mentry.getKey()==nombre)
+            type = "El tipo de la carta es: "+mentry.getValue();
     }
      if (type.equals(""))
         type = "No existe la carta";
