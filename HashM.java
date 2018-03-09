@@ -19,6 +19,7 @@ public class HashM implements Maps {
     private HashMap<String, String> hmap = new HashMap<String, String>();
     private Set set = hmap.entrySet();
     private Iterator iterator = set.iterator();
+    
 public void agregarCarta(String linea){
     String[] arr = linea.split("\\|");
     hmap.put(arr[0], arr[1]);
@@ -79,25 +80,12 @@ public String getCantidad(){
     {
     	cantidad += 1;
     }
-    return cantidad;
+    return String.valueOf(cantidad);
 }
 
 public String getCantidadOrdenadas(){
-   	String r = "";
-   	int cantidad = 0;
-    Map<String, String> map = new TreeMap<String, String>(hmap);
-    Set set2 = map.entrySet();
-    Iterator iterator2 = set2.iterator();
-    while (iterator2.hasNext()){
-        Map.Entry me2 = (Map.Entry)iterator2.next();
-        cantidad += 1;
-        r = r + "Nombre: "+me2.getValue()+" Tipo: "+me2.getKey()+"cantidad: "+cantidad+"\n";
-    }
-    return r;
+    return "";
 }
 }
     
-
-
-
 

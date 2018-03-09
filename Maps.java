@@ -10,6 +10,7 @@
  */
 public interface Maps {
 public void agregar(String nombre);
+public void agregarCarta(String linea);
 public String tipo(String nombre);
 public String getCartasTodas();
 public String getCartasOrdenadas();
