@@ -69,12 +69,30 @@ public String getCartasOrdenadas(){
 }
 
 public String getCantidad(){
-    return "";
+    int cantidad = 0;
+    while (iterator.hasNext())
+    {
+    	cantidad += 1;
+    }
+    return cantidad;
 }
 
 public String getCantidadOrdenadas(){
-    return "";
+   	String r = "";
+   	int cantidad = 0;
+    Map<String, String> map = new TreeMap<String, String>(hmap);
+    Set set2 = map.entrySet();
+    Iterator iterator2 = set2.iterator();
+    while (iterator2.hasNext()){
+        Map.Entry me2 = (Map.Entry)iterator2.next();
+        cantidad += 1;
+        r = r + "Nombre: "+me2.getValue()+" Tipo: "+me2.getKey()+"cantidad: "+cantidad+"\n";
+    }
+    return r;
 }
 }
     
+
+
+
 

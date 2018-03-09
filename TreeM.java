@@ -68,7 +68,12 @@ public String getCartasOrdenadas(){
 }
 
 public String getCantidad(){
-    return "";
+    int cantidad = 0;
+    while (iterator.hasNext())
+    {
+    	cantidad += 1;
+    }
+    return cantidad;
 }
 
 public String getCantidadOrdenadas(){
